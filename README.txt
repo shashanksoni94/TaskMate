@@ -71,3 +71,4 @@ Jimmy Jinye Xu       (858) 260-9719   jix029@ucsd.edu
 Andrew Van           (408) 406-8330   anvan@ucsd.edu
 Amelia Vu            (408) 802-6993   adv002@ucsd.edu
 Chi Hon Law (John)   (650) 450-1887   chlaw@ucsd.edu
+Shashank Soni	     (619) 519-4447   ssoni@ucsd.edu
