@@ -1,0 +1,158 @@
+<!doctype html>
+<html ng-app="profileApp">
+<head>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.3.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
+    <script src = "js/newsfeed.js"></script>
+    <title>Task Mate</title>
+
+</head>
+
+<body>
+<nav class="navbar navbar-default" ng-app ng-controller="NavigationBarController">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" ng-click = "goHome()">HOME</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+
+        <!--settings-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <img src = "img/glyphicons-137-cogwheel.png">
+           <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click = "logOut()">Log Out</a></li>
+          </ul>
+        </li>
+
+        <!--notifications-->
+
+        <li>
+            <a href="#" ng-click = "goNotification()">
+            <img src = "img/glyphicons-11-envelope.png">
+          </a>
+            </li>
+
+        <!--search-->
+        <li>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="row">
+                <div class="col-lg-12">
+                    <div class="input-group">
+                        <input id="searchInput" type="text" class="form-control" placeholder="Search for..." ng-model="searchInput">
+                    <span class="input-group-btn">
+                        <button ng-click="search()" class="btn btn-default" type="button" id = "search">
+                            Go!
+                        </button>
+                    </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+      </form>
+    </li>
+
+      <!--my profile-->
+       <li><a href="#" ng-click = "goProfile()">
+        <img ng-src = "{{profilePictureURL}}" class = "img-circle" height = "30" width = "30">  My Profile</a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div id="container" ng-controller="profileCtrl">
+
+    <div class="leftContent">
+        <br/>
+        <img ng-src={{picUrl}} style="width:120px;height:120px;-webkit-border-radius: 60px;-moz-border-radius: 60px;"/>
+
+        <h4>Hi, {{firstName1}} {{lastName1}}</h4>
+        <br/><br/><br/>
+    </div>
+
+<div class = "centerContent">
+<div>
+
+        <script type="text/javascript" src="js/Profile.js"></script>
+
+    <!--Profile picture, name, and change profile picture buttons-->
+    <div class = "profile_picture">
+        <img id = "profilePic" ng-src= {{picURL}} style="width:250px;height:250px;background-size: cover;border-radius: 100em;-webkit-border-radius: 125px;-moz-border-radius: 125px;"/>
+    </div>
+
+    <h1 id = "name"> {{firstName}} {{lastName}} </h1>
+    
+    <div class = "uploadPicture">
+            <input type="file" id="profilePhotoFileUpload">
+            <br>
+            <button id = "submitPic" class="btn btn-default" type="submit" ng-click="upload()">Submit Profile Picture</button>
+            <br>
+    </div>
+
+
+    <!--The users lists-->
+    <center>
+    <div class = "list_of_lists">
+        <h3>{{firstName}} {{lastName}}'s Lists </h3><br/>
+        <div ng-repeat="toDoList in toDoLists">
+                <a href = {{toDoList.link}}>
+                    <button type="button" class="btn btn-default btn-lg btn-block">{{toDoList.name}}</button>
+                    
+                </a>
+        </div>
+    </div>
+
+    <br/><br/>
+
+        <!--Create a new list button-->
+        <div class = "create_new_goal">
+        <button id="createNewListButton" type="button" class="btn btn-success btn-lg">Create New List</button>
+            <div style="display:none" id="createListArea">
+                <p>List Name: </p>
+                <input type="text" class="form-control" id="listName">
+                <p>List Description (Optional): </p>
+                <textarea class="form-control" rows="5" id="listDescription"></textarea>
+                <br>
+                <button type="button" class="btn btn-success btn-lg" ng-click="makeList()">Create!</button>
+                <button type="button" id="cancelCreateList" class="btn btn-danger btn-lg">Cancel</button>
+            </div>
+    </div>
+
+        <!--When the user clicks on the create a new list, it reveals the form information-->
+        <script>
+        $("#createNewListButton").click(function() {
+        $("#createListArea").show("slow");
+        });
+        $("#cancelCreateList").click(function() {
+        $("#createListArea").hide("slow");
+        });
+    </script>
+    <br/><br/><br/>
+</center>
+
+</div>
+</div><!end of center block>
+
+</div><!end of container class>
+
+                
+</body>
+</html>

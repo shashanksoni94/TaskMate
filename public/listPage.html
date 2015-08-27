@@ -1,0 +1,187 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://www.parsecdn.com/js/parse-1.3.5.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src = "js/newsfeed.js"></script>
+    <script src="js/showList.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link href = "css/listPage.css" rel = "stylesheet" type = "text/css"/>
+
+    <title>Task Mate</title>
+
+</head>
+
+<body>
+<div id="container" ng-app>
+<nav class="navbar navbar-default" ng-app ng-controller="NavigationBarController">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" ng-click = "goHome()">HOME</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+
+        <!--settings-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <img src = "img/glyphicons-137-cogwheel.png">
+           <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click = "logOut()">Log Out</a></li>
+          </ul>
+        </li>
+
+        <!--notifications-->
+
+        <li>
+          <a href="#" ng-click = "goNotification()">
+            <img src = "img/glyphicons-11-envelope.png">
+          </a>
+        </li>
+
+        <!--search-->
+        <li>
+          <form class="navbar-form navbar-left" role="search">
+          <div class="row">
+          <div class="col-lg-12">
+            <div class="input-group">
+                <input id="searchInput" type="text" class="form-control" placeholder="Search for..." ng-model="searchInput">
+              <span class="input-group-btn">
+                <button ng-click="search()" class="btn btn-default" type="button" id = "search">
+                  Go!
+                </button>
+              </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+      </form>
+    </li>
+
+      <!--my profile-->
+       <li><a href="#" ng-click = "goProfile()">
+        <img ng-src = "{{profilePictureURL}}" class = "img-circle" height = "30" width = "30">  My Profile</a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<br/><br/>
+
+<!-- Display name and profile pic -->
+<div>
+  <div class="leftContent-top" ng-controller = "infoCtrl">
+    <br/>
+  	<center><img ng-src={{picUrl}} alt="Profile Picture (Circular)" style="width:120px;height:120px;-webkit-border-radius: 60px;-moz-border-radius: 60px;"></center>
+    <center><h4>Hi, {{firstName}} {{lastName}}</h4></center>
+    <br><br/><br/>
+  </div>
+</div>
+
+  <div class="centerContent">
+<div ng-controller="GoalController">
+
+<!-- Display list name and description -->
+<center>
+      <div style="font-size:75px;">
+              <p>{{Name}}</p>
+      </div>
+      </center>
+
+        <div ng-repeat="Description in Descriptions">
+		<div class="desc"> {{Description.name}}</div></div>
+	<br/>
+
+<!-- In progress category -->
+      <center><button class="btn dropdown-toggle" type="button" onclick="showInProgress()">IN PROGRESS <span class="caret"></span></button></center>
+<div class="boxed" id="InProgress">
+	<br/>
+	<div class="row" ng-repeat="IncompleteGoal in IncompleteGoals">
+		<div class="col-sm-offset-3 col-sm-4">
+		<ul class="list-group">
+		  <li class="list-group-item" id="{{$index}}"> {{IncompleteGoal.name}} <font color="red"> {{IncompleteGoal.dueDate}}</font>
+	                <span class="show-menu" onclick="showMenu({{$index}})">
+		  <span class="glyphicon glyphicon-chevron-right"></span></span>
+	  <ul class="list-group-submenu">
+		  <li class="list-group-submenu-item success" type="button" onclick="completeGoal({{$index}})"><span class="glyphicon glyphicon-ok"></span></li>
+		  <li class="list-group-submenu-item danger" type="button" onclick="deleteGoal({{$index}})"><span class="glyphicon glyphicon-remove"></span></li>
+    	</ul>
+          </li>
+  </ul>
+  </div>
+  </div>
+  </div>
+<!-- Complete category -->
+        <br/>
+	      <div class="dropdown">
+		      <center> <button class="btn dropdown-toggle" type="button" onclick="showComplete()">COMPLETE <span class="caret"></span></button></center>
+		<div class="boxed" id="Complete">
+			</br>
+	<div class="row" ng-repeat="CompletedGoal in CompletedGoals">
+		<div class="col-sm-offset-3 col-sm-4">
+			<ul class="list-group">
+				<li class="list-group-item"> {{CompletedGoal.name}} 
+				</li>
+				</ul>
+	  </div>
+      </div>
+</div></div>
+<br/>
+<br/>
+<center>
+  <!-- Create goal button -->
+<div class = "newGoal">
+   <button type="button" id="newGoalBtn" class="btn btn-success btn-lg"> Create Goal</button>
+     <div style="display:none" id="goalCreator">
+     <p>Goal description: </p>
+     <input type="text" class="form-control" id="goalDesc">
+     <p>Goal deadline (Optional, /MONTH DAY, YEAR/): </p>
+     <input type="text" class="form-control" id="goalDate">
+     <br>
+     <button type="button" id="cancelCreateGoal" class="btn btn-success btn-lg" ng-click="addGoal()">Create!</button>
+     <button type="button" id="cancelCreateGoal" class="btn btn-danger btn-lg">Cancel</button>
+</center>
+</div>
+</div>
+
+<!-- Show/hide for button -->
+<script>
+$("#newGoalBtn").click(function() {
+  $("#goalCreator").show("slow");
+});
+$("#cancelCreateGoal").click(function() {
+  $("#goalCreator").hide("slow");
+});
+</script>
+
+<br/><br/>
+</div>
+</div>
+
+</div>
+</body>
+<script> setDisplay() </script>
+</html>
+
+

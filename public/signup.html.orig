@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "signUpApp">
+	<head>
+    	<meta charset="UTF-8">
+    	<link href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel = "stylesheet">
+
+    	<link href = "css/signup.css" rel = "stylesheet" type = "text/css"/>
+
+    	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
+
+    	<script src="//www.parsecdn.com/js/parse-1.3.5.min.js"></script>
+
+    	<script src="js/signup.js"></script>
+
+    	<title>Sign up Page</title>
+
+      <style>
+        #custom-bootstrap-menu.navbar-default .navbar-brand {
+            color: rgba(255, 255, 255, 1);
+            font-size: 25px;
+        }
+        #custom-bootstrap-menu.navbar-default {
+            font-size: 15px;
+            background-color: rgba(78, 147, 212, 1);
+            border-width: 1px;
+            border-radius: 4px;
+        }
+        #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+            color: rgba(255, 255, 255, 1);
+            background-color: rgba(248, 248, 248, 0);
+        }
+        #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+        #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+            color: rgba(196, 196, 196, 1);
+            background-color: rgba(248, 248, 248, 0);
+        }
+        #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+        #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+        #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+            color: rgba(85, 85, 85, 1);
+            background-color: rgba(231, 231, 231, 1);
+        }
+        #custom-bootstrap-menu.navbar-default .navbar-toggle {
+            border-color: #ddd;
+        }
+        #custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+        #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+            background-color: #ddd;
+        }
+        #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+            background-color: #888;
+        }
+        #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+        #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+            background-color: #4e93d4;
+        }
+
+        .nav-header{
+          position:relative;
+          width: 100%;
+          height: 100;
+        }
+
+        .signIn-title{
+          font-size: 35px;
+          color: rgba(78, 147, 212, 1);
+          text-align: center;
+          padding-bottom: 20px;
+        }
+
+        .signup-info{
+          width:70%;
+          position: center;
+          background-image: url("img/formBG.png");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+
+          padding-left: 10px;
+          padding-bottom: 50px;
+          padding-top: 50px;
+          padding-right: 10px;
+        }
+
+        .form-group{
+          padding-left: 100px;
+          padding-bottom: 0px;
+          width:80%;
+        }
+
+        .btn{
+          display:block;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+      </style>
+
+      <style>
+        body {
+          background-image: url('img/landingPageBG.png');
+          background-position: top;
+          background-repeat: no-repeat;
+
+        }
+        html{
+          background-image: url('img/landingPageBG.png');
+          background-position: top;
+          background-repeat: no-repeat;
+
+        }
+      </style>
+
+	</head>
+
+    <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+         <ul class="nav navbar-nav navbar-left">
+          <li><a href="#">
+            <div class="nav-header">
+                <img src = "img/tempLogo.png" class="img-responsive" alt="Logo" width="24" height="24">
+              </div>
+              </a></li>
+           <li>
+          <a class="navbar-brand" href="#">Taskmate</a>
+            
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Login</a>
+                    </li>
+
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+
+    </div>
+
+	<body>
+
+    
+    <form class = "form-horizontal">
+     <div ng-controller = "signUpCtrl">
+<<<<<<< HEAD
+	  <div class = "signup-info">
+
+    <div class="signIn-title">
+      <label>
+        Create Account!
+      </label>
+    </div>
+
+		<div class="form-group">
+      		<label style="float:left" class="col-sm-2 control-label"></label>
+      		<div class="col-sm-10">
+        		<input class="form-control" id="inputEmail3" placeholder="Your first name" ng-model="firstName">
+      		</div>
+    	</div>
+=======
+	     <div class = "signup-info">
+		    <div class="form-group">
+      		<label class="col-sm-2 control-label">First Name</label>
+      		  <div class="col-sm-10">
+        		  <input class="form-control" id="inputEmail3" placeholder="Your first name" ng-model="firstName">
+      		  </div>
+    	    </div>
+>>>>>>> e049a8288f12d71458103ed8385b401dd2bd39bd
+
+    	&nbsp;
+
+    	<div class="form-group">
+      		<label class="col-sm-2 control-label"></label>
+      			<div class="col-sm-10">
+        			<input class="form-control" id="inputPassword3" placeholder="Your last name" ng-model="lastName">
+      			</div>
+    	</div>
+
+    	&nbsp;
+
+    	<div class="form-group">
+      		<label for="inputEmail3" class="col-sm-2 control-label"></label>
+      			<div class="col-sm-10">
+        			<input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="newemail">
+      			</div>
+    	</div>
+
+    	&nbsp;
+
+    	<div class="form-group">
+      		<label for="inputPassword3" class="col-sm-2 control-label"></label>
+      			<div class="col-sm-10">
+        			<input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="newpassword">
+      			</div>
+    	</div>
+
+      <div class = "btn-class">
+            <button type="submit" class="btn btn-default btn-lg col-center-block" class = "btn" ng-click="submit1()">Sign up</button>
+      </div>
+
+    	&nbsp;
+      </div>
+
+  
+
+     </div>
+
+    
+
+     </form>
+	</body>
+</html>

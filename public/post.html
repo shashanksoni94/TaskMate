@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html ng-app ng-controller="NewsfeedController">
+<head lang="en">
+	<meta charset="UTF-8">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <title>Task Mate</title>
+</head>
+<style>
+	#main {
+		margin: 0 auto; 
+		width: 800px;
+	}
+	.messageBox {
+		border:1px solid #bbb;
+		padding: 10px;
+		background-color: #F0F8FF;
+		height: 100px;
+	}
+	.commentBox{
+		margin: 0px;
+		padding: 10px;
+		background-color: #FFFAFA;
+	}
+	
+
+</style>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" ng-click = "goHome()">HOME</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+
+		<!--settings-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <img src = "img/glyphicons-137-cogwheel.png">
+           <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click = "logOut()">Log Out</a></li>
+          </ul>
+        </li>
+
+        <!--notifications-->
+
+        <li>
+        	<a href="#" ng-click = "goNotification()">
+            <img src = "img/glyphicons-11-envelope.png">
+          </a>
+		    </li>
+
+        <!--search-->
+      	<li>
+      		<form class="navbar-form navbar-left" role="search">
+  				<div class="row">
+  				<div class="col-lg-12">
+    				<div class="input-group">
+      					<input id="searchInput" type="text" class="form-control" placeholder="Search for..." ng-model="searchInput">
+      				<span class="input-group-btn">
+        				<button ng-click="search()" class="btn btn-default" type="button" id = "search">
+        					Go!
+        				</button>
+      				</span>
+    				</div><!-- /input-group -->
+  				</div><!-- /.col-lg-6 -->
+			</div><!-- /.row -->
+      </form>
+    </li>
+
+      <!--my profile-->
+       <li><a href="#" ng-click = "goProfile()">
+       	<img ng-src = "{{profilePictureURL}}" class = "img-circle" height = "30" width = "30"> My Profile</a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+	<body>
+
+		<div id="main">
+			<div>
+
+				<h4 id="user">
+					<!-- display image and username -->
+					<a ng-href="{{profilePage}}">
+						<img class="img-circle" width="100px" height="100px" src="{{profilePicture}}">
+						{{username}}
+					</a>
+				</h4>
+			</div>
+			
+			<!-- display message field -->
+			<div>
+				<p class="messageBox">
+					{{message}}
+				</p>
+			</div>	
+
+			<!-- display likes -->
+			<div align="right">
+				<button id="likeThePost" type="button" class="btn btn-info" ng-click="like()">
+					{{Like}}
+				</button>
+			</div>
+
+			<!-- Angularjs rendering comments -->
+			<div ng-repeat="Comment in Comments">
+				<h5 id="user">
+					<a ng-href="{{Comment.commenterProfilePage}}">
+						<img class="img-circle" width="50px" height="50px" src="{{Comment.commenterProfilePicture}}">
+						{{Comment.username}}
+					</a>
+				</h5>
+				<p class="commentBox">
+					{{Comment.content}}
+				</p>
+
+			</div>
+
+			<!-- format for add comment -->
+			<div align="justify">
+				<form class="form-inline" role="form" >
+					<div class="form-group">
+						<input class="form-control" id="commentInput" type="text" size="50" placeholder="Your comments" />
+					</div>
+					<div class="form-group">
+						<button class="btn btn-primary" ng-click="addComment()">Comment</button>
+					</div>
+				</form>	
+			</div>	
+		</div>
+
+
+
+		<script type="text/javascript" src="js/post.js"></script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+		<script src="http://www.parsecdn.com/js/parse-1.3.5.min.js"></script>
+	</body>
+	</html>

@@ -1,0 +1,12 @@
+h1 {
+	margin-left: 30px;
+}
+
+.login-info {
+	margin-top: 80px;
+	display: block;
+	position: fixed;
+	right: 120px;
+	width: 30%;
+
+}

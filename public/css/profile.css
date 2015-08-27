@@ -1,0 +1,69 @@
+.leftContent {
+  float: left;
+  width:16%;
+  background-color: white;
+  margin: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+ }
+
+ .centerContent {
+    padding: 15px; 
+    width: 63%;
+    background-color: white;
+    display: inline-block;
+    border-radius: 10px;
+    position: relative;
+    margin: 10px;
+ }
+
+ .rightContent {
+   float:right;
+   width:16%;
+   background-color: white;
+   margin: 10px;
+   display: inline-block;
+   border-radius: 10px;
+  }
+
+body {
+    background-image: url("../img/landingPageBG.png");
+ }
+
+#profilePic {
+    position: relative;
+    left: 30px;
+    top: 30px;
+}
+
+#name {
+    position: relative;
+    left: 330px;
+    top: -180px;
+}
+
+#follow {
+    position: relative;
+    left: 550px;
+    top: -235px;
+}
+
+.uploadPicture {
+    position: relative;
+    left: 290px;
+    top: -110px;
+}
+
+.btn-block {
+    width: 500px;
+}
+
+.list_of_lists {
+    margin: 40px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    background-image: url("../img/landingPageBG.png");
+    border-radius: 10px;
+}
+

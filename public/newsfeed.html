@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	
+    <script src="http://www.parsecdn.com/js/parse-1.3.5.min.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
+
+    <script src = "js/newsfeed.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/newsfeed.css"/>
+    <title>Task Mate</title>
+
+    <!--set the background image for the newsfeed page-->
+    <style>
+      html {
+        background-image: url("../img/landingPageBG.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+        height: 100%;
+      }
+
+      body {
+        background-image: url("../img/landingPageBG.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+      }
+    </style>
+</head>
+
+
+
+<body ng-app = "newsfeedApp" ng-controller="newsfeedCtrl">
+
+<!--navbar for newsfeed page-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" ng-click = "goHome()">HOME</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+
+        <!--settings-->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <img src = "img/glyphicons-137-cogwheel.png">
+           <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click = "logOut()">Log Out</a></li>
+          </ul>
+        </li>
+
+        <!--notifications-->
+
+        <li>
+          <a href="#" ng-click = "goNotification()">
+            <img src = "img/glyphicons-11-envelope.png">
+          </a>
+        </li>
+
+        <!--search-->
+        <li>
+          <form class="navbar-form navbar-left" role="search">
+          <div class="row">
+          <div class="col-lg-12">
+            <div class="input-group">
+                <input id="searchInput" type="text" class="form-control" placeholder="Search for..." ng-model="searchInput">
+              <span class="input-group-btn">
+                <button ng-click="search()" class="btn btn-default" type="button" id = "search">
+                  Go!
+                </button>
+              </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+      </form>
+    </li>
+
+      <!--my profile-->
+       <li><a href="#" ng-click = "goProfile()">
+        <img ng-src = "{{profilePictureURL}}" class = "img-circle" height = "30" width = "30">  My Profile</a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+  <!--use angular ng-repeat to display all the newsfeed objects-->
+  <div ng-repeat="post in posts">
+    <div class="padding">
+      <div class="well well-lg">
+        
+        <!--display the profile image in circular style-->
+        <div class="userInfo" ng-click="redirectToProfile($index)">
+          <img ng-src={{post.picURL}} alt="Profile Picture" style="width:60px;height:60px;-webkit-border-radius: 30px;-moz-border-radius: 30px;">
+
+          <p>{{post.firstName}} {{post.lastName}}</p>
+        </div>
+
+
+        <!--set view details in each post-->
+        <div class="view" ng-click="goToPost($index)">
+          <p>View details</p>
+        </div>
+
+        <!--set message in each post-->
+        <div class="message">
+          <p>{{post.message}}</p>
+        </div>
+
+        <!--set numLikes in each post-->
+        <div class="numCom-Likes">
+          <p>{{post.numLikes}} Likes &nbsp; {{post.numComments}} Comments</p>
+        </div>
+
+        <!--set the button-->
+        <div class ="button" ng-click="plusOne($index)">
+          <button type="button" class="btn btn-default">{{post.btnText}}</button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</body>	
+
+</html>

@@ -1,0 +1,84 @@
+{
+  "global": {
+    "parseVersion": "1.4.2"
+  },
+  "applications": {
+    "Aki": {
+      "link": "Task Mate Aki"
+    },
+    "Amelia": {
+      "link": "Task Mate Amelia"
+    },
+    "Andrew": {
+      "link": "Task Mate Andrew"
+    },
+    "Jerry": {
+      "link": "Task Mate Jerry"
+    },
+    "Jimmy": {
+      "link": "Task Mate Jimmy"
+    },
+    "John": {
+      "link": "Task Mate John"
+    },
+    "Julie": {
+      "link": "Task Mate Julie"
+    },
+    "Robb": {
+      "link": "Task Mate Robb"
+    },
+    "Shashank": {
+      "link": "Task Mate Shashank"
+    },
+    "Simon": {
+      "link": "Task Mate Simon"
+    },
+    "Task Mate Aki": {
+      "applicationId": "vVG8JXX8woCnEM0A7cxPpOTavrr0A4JfbCgvEHxE",
+      "masterKey": "5J4ekKsXzsdEAhGqC8hnkCH920HpMFMW9kuY2rk4"
+    },
+    "Task Mate Amelia": {
+      "applicationId": "vOkA6LcoNG2ZaaIrQ5mG63LcyuLw76ZC3ghDNNkl",
+      "masterKey": "XS2LhRjZ7uTK6W2ruC9kL8JVvLSKkoSkQPdQ9Hl2"
+    },
+    "Task Mate Andrew": {
+      "applicationId": "FB3Rv9xAPit88n0ZHuasXSboXZHCct6zb14T58DE",
+      "masterKey": "Y5gFwg0g9RipLKe3871jR5943x8kpYQIKbv9iN5N"
+    },
+    "Task Mate Jerry": {
+      "applicationId": "WTyDzj22ocWT9pgKhECSkZMmrRCJjsUTF2GGZhhf",
+      "masterKey": "Vtq79bgR8CTrDJFCfxQuibLOt550xHPx0jlp51GA"
+    },
+    "Task Mate Jimmy": {
+      "applicationId": "bh9Iza9Ir2cWNXStutapOSqVT1YCG86nsFBlL5d7",
+      "masterKey": "zQf3dOGnDbWVmR33aT15VpqrsZl2PbdAxTtEXKVE"
+    },
+    "Task Mate John": {
+      "applicationId": "ZLDPnL5t8AzKUzPF2OJfLcP7GGS5584iJSMGXkRS",
+      "masterKey": "s8VRiGASLY2LEM3s4krbmNLid1PAgKA2cn8fjgjj"
+    },
+    "Task Mate Julie": {
+      "applicationId": "u1Ja8cb4WbMF4LfhXc4DDxVumfE8mCuCZRTFOHSl",
+      "masterKey": "TQo0EoHiqPFhhTGMQ33JFs4DXDYPh7lkApGXZnoZ"
+    },
+    "Task Mate Production": {
+      "applicationId": "eVEt0plCyNLg5DkNtgBidbruVFhqUBnsMGiiXp63",
+      "masterKey": "4MIFiNhm7ozTMSSQa3th4WspBMYynXQf0Dl36mt8"
+    },
+    "Task Mate Robb": {
+      "applicationId": "tO9mwoQVauET6IODVovVPW5Eztqyc5ql1KzDppUY",
+      "masterKey": "ctvpwMagFWFsZJuzDKVVIS95HaOQQ99Ap54H8ffR"
+    },
+    "Task Mate Shashank": {
+      "applicationId": "3MwyU4lEOEPLRgQc8co45LeIeIkpAp0legQIg9t7",
+      "masterKey": "i5uq8y65RCDGpIbZisowk0zCXMj26wzE6jUkucmi"
+    },
+    "Task Mate Simon": {
+      "applicationId": "QjXPXme3VpSyKdvZKMDRXY5TmdOP7L6fxvysfdXq",
+      "masterKey": "MsYyZ8TcUTbkVIupq6VDci61xY4i3KLwDVEfKC2D"
+    },
+    "_default": {
+      "link": "Task Mate Production"
+    }
+  }
+}

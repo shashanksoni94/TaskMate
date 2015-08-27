@@ -1,0 +1,90 @@
+.well{
+	letter-spacing: 1px;
+}
+
+.well:hover {
+	background-color: #D0D0D0;
+	letter-spacing: 1px;
+}
+
+.padding {
+	margin-left: 350px;
+	margin-right: 350px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+
+.message{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 70px;
+	font-size: 16px;
+	color: black;
+
+}
+
+.button{
+	float: right;
+	position: relative;
+	bottom: 22px;
+
+}
+
+.numCom-Likes{
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 14px;
+	position: relative;
+	bottom: 10px;
+}
+
+.view{
+	position: relative;
+	float: right;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 15px;
+	bottom: 100px;
+	top: 6px;
+	text-decoration: underline;
+	z-index: 10;
+}
+
+.view:hover {
+	position: relative;
+	float: right;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 15px;
+	bottom: 100px;
+	top: 6px;
+	text-decoration: underline;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.userInfo p {
+	position: relative;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 17px;
+	left: 15px;
+	display: inline;
+	text-decoration: underline;
+}
+
+
+.userInfo {
+	display: inline-block;
+}
+
+.userInfo:hover {
+	display: inline-block;
+	cursor: pointer;
+}
+
+
